@@ -1,0 +1,32 @@
+#ifndef OBSERVER_H
+#define OBSERVER_H
+
+#include "state.h"
+#include <string>
+#include <vector>
+#include <memory>
+
+class State;
+
+class Outpcout{
+public:
+    Outpcout(size_t&N);
+    virtual ~Outpcout(){}
+    virtual void update(const std::string str)=0;
+    virtual void init()=0;
+    virtual void print_to_file(const std::string &str)=0;
+    void print_obs();
+    bool lock;
+    void setCurrent(std::shared_ptr<State>s){
+        current = s;
+    }
+    void staticblock();
+    void dynamicblock();
+    void set_str(std::string &str);
+    //void remove_space(std::string &str);
+private:
+    std::shared_ptr<State>current;
+    std::vector<std::string>m_vector;
+};
+
+#endif // OBSERVER_H

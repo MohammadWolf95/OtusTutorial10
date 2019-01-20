@@ -1,0 +1,22 @@
+#ifndef DYNAMICOBSERVER_H
+#define DYNAMICOBSERVER_H
+
+#include "state.h"
+
+class DynamicBlock:public Statecout{
+public:
+    DynamicBlock(Statecout*model)
+        :controle_str("{"){
+        current = model;
+        current->attach(this);
+    }
+    void staticblock();
+    void dynamicblock();
+    void update(const std::string str);
+    void init();
+    void print_to_file(const std::string &str);
+private:
+
+};
+
+#endif // DYNAMICOBSERVER_H
