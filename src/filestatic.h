@@ -7,17 +7,14 @@
 #include "model.h"
 #include <memory>
 #include "output.h"
+#include <thread>
 
-class StateFout;
-
-class Fileoutput: public Output
+class Filestatic: public Output
 {
 public:
-    Fileoutput(Model*model);
+    Filestatic(Model*model);
     void createFile(std::string name);
     void closeFile();
-    void update(const std::string &str);
-    void update();
     void print();
 private:
     std::ofstream _outfile;

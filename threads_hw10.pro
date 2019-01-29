@@ -16,15 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += src/main.cpp \
-    src/fileoutput.cpp \
     src/model.cpp \
     src/output.cpp \
-    src/blockoutput.cpp \
-    src/utils.cpp
+    src/utils.cpp \
+    src/filedynamic.cpp \
+    src/filestatic.cpp \
+    src/consoleoutput.cpp
 
 HEADERS += \
     src/utils.h \
-    src/fileoutput.h \
     src/output.h \
     src/model.h \
-    src/blockoutput.h
+    src/filedynamic.h \
+    src/filestatic.h \
+    src/consoleoutput.h

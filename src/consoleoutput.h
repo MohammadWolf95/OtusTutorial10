@@ -6,13 +6,13 @@
 #include <memory>
 #include "model.h"
 #include "output.h"
+#include <thread>
 
 class StateCout;
 
 class Blockoutput:public Output{
 public:
     Blockoutput(Model *model);
-    void update();
     void print();
 };
 

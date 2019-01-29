@@ -1,5 +1,6 @@
-#include "fileoutput.h"
-#include "blockoutput.h"
+#include "filestatic.h"
+#include "filedynamic.h"
+#include "consoleoutput.h"
 #include <iostream>
 #include "model.h"
 
@@ -15,7 +16,8 @@ int main(int argc, char *argv[])
         size_t N = strtol(argv[1],&p,10);
         Model mod(N);
         Blockoutput c_obs(&mod);
-        Fileoutput f_obs(&mod);
+        Filestatic  fs_obs(&mod);
+        Filedynamic fd_obs(&mod);
         while(getline(cin, str)){
             mod.get_time();
             mod.set_str(str);

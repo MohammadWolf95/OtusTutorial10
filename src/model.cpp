@@ -15,9 +15,16 @@ void Model::update(const std::string &str){
         vecCommands.emplace_back(str);
         if(vecBulk.size()==1)
             setFirstFixedTime();
-        if(vecCommands.size()==this->n_arg&&controle_str==""){
-            for(auto&i:_views)
-                i->update();
+        if(vecCommands.size()==this->n_arg&&controle_str==""){//режим статический
+            /*for(auto&i:_views)
+                i->print();*/
+            for(auto&i:_views_static){
+                i->mThread = std::thread([i]{i->print();});
+            }
+            for(auto&i:_views_static){
+                if(i->mThread.joinable())
+                        i->mThread.join();
+            }
             vecCommands.clear();
             vecBulk.clear();
         }
@@ -25,9 +32,15 @@ void Model::update(const std::string &str){
     else{
         if(str=="{"){
             if(controle_str.size()==0&&vecBulk.size()!=0){//режим динамический
-
-                for(auto&i:_views)
-                    i->update();
+                /*for(auto&i:_views)
+                    i->print();*/
+                for(auto&i:_views_dynamic){
+                    i->mThread = std::thread([i]{i->print();});
+                }
+                for(auto&i:_views_dynamic){
+                    if(i->mThread.joinable())
+                            i->mThread.join();
+                }//нужно исправить*/
                 vecCommands.clear();
                 vecBulk.clear();
             }
@@ -38,8 +51,16 @@ void Model::update(const std::string &str){
             vecCommands.emplace_back("}");
             controle_str = controle_str.substr(0, controle_str.size()-1);
             if(controle_str==""){//режим статический
-                for(auto&i:_views)
-                    i->update();
+                /*for(auto&i:_views)
+                    i->print();*/
+
+                for(auto&i:_views_static){
+                    i->mThread = std::thread([i]{i->print();});
+                }
+                for(auto&i:_views_static){
+                    if(i->mThread.joinable())
+                            i->mThread.join();
+                }
                 vecCommands.clear();
                 vecBulk.clear();
             }

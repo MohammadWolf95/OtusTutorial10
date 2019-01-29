@@ -12,8 +12,11 @@ class Model
 {
 public:
     Model(size_t &N);
-    void attach(Output*obs){
-        _views.emplace_back(obs);
+    void attach_static(Output*obs){
+        _views_static.emplace_back(obs);
+    }
+    void attach_dynamic(Output*obs){
+        _views_dynamic.emplace_back(obs);
     }
     void set_str(std::string &str);
     void get_time();
@@ -24,7 +27,7 @@ public:
     std::vector<std::string>vecCommands;
     std::vector<std::string>vecBulk;
 private:
-    std::vector<Output *> _views;
+    std::vector<Output *> _views_static, _views_dynamic;
     void update(const std::string& str);
     size_t get_fixed_time();
 

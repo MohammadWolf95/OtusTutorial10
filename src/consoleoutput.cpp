@@ -1,14 +1,11 @@
-#include "blockoutput.h"
+#include "consoleoutput.h"
 #include <iostream>
 #include <cstring>
 
 Blockoutput::Blockoutput(Model *model){
-    model->attach(this);
+    model->attach_static(this);
+    model->attach_dynamic(this);
     this->model = model;
-}
-
-void Blockoutput::update(){
-    print();
 }
 
 void Blockoutput::print(){
