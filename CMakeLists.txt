@@ -8,12 +8,13 @@ set(TEST_PATH "${PROJECT_TEST_DIR}/test")
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
-add_executable(bulkIO 
-					${SOURCE_PATH}/main.cpp
-					${SOURCE_PATH}/blockobserver.cpp
-					${SOURCE_PATH}/dynamicobserver.cpp
-					${SOURCE_PATH}/observer.cpp
-					${SOURCE_PATH}/subject.cpp
+add_executable(bulkIO
+					${SOURCE_PATH}/*.cpp 
+					#${SOURCE_PATH}/main.cpp
+					#${SOURCE_PATH}/blockobserver.cpp
+					#${SOURCE_PATH}/dynamicobserver.cpp
+					#${SOURCE_PATH}/observer.cpp
+					#${SOURCE_PATH}/subject.cpp
 					)
 
 add_compile_options(-std=c++11)
