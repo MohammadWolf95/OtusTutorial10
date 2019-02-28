@@ -15,7 +15,11 @@ void Model::update(const std::string &str){
         vecCommands.emplace_back(str);
         if(vecBulk.size()==1)
             setFirstFixedTime();
-        if(vecCommands.size()==this->n_arg&&controle_str==""){//режим статический
+
+        /* режим статический, проверка количество напечатнных
+         * строк совпадает с номером аргумента
+        */
+        if(vecCommands.size()==this->n_arg&&controle_str==""){
             /*for(auto&i:_views)
                 i->print();*/
             for(auto&i:_views_static){
@@ -31,7 +35,10 @@ void Model::update(const std::string &str){
     }
     else{
         if(str=="{"){
-            if(controle_str.size()==0&&vecBulk.size()!=0){//режим динамический
+            /*
+             * переключение в режим динамический
+            */
+            if(controle_str.size()==0&&vecBulk.size()!=0){
                 /*for(auto&i:_views)
                     i->print();*/
                 for(auto&i:_views_dynamic){
@@ -40,17 +47,21 @@ void Model::update(const std::string &str){
                 for(auto&i:_views_dynamic){
                     if(i->mThread.joinable())
                             i->mThread.join();
-                }//нужно исправить*/
+                }
                 vecCommands.clear();
                 vecBulk.clear();
             }
             controle_str+="{";
             vecCommands.emplace_back("{");
         }
+
         else if(controle_str.size()!=0){
             vecCommands.emplace_back("}");
             controle_str = controle_str.substr(0, controle_str.size()-1);
-            if(controle_str==""){//режим статический
+
+            /*переключение в режим статический
+            */
+            if(controle_str==""){
                 /*for(auto&i:_views)
                     i->print();*/
 

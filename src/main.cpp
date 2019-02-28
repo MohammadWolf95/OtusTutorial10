@@ -15,9 +15,27 @@ int main(int argc, char *argv[])
         char*p;
         size_t N = strtol(argv[1],&p,10);
         Model mod(N);
+
+        //поток для консоли
         Blockoutput c_obs(&mod);
+
+        /*поток для статических файловых ввода-вывода
+         * ...
+         * ...
+         * ...
+        */
         Filestatic  fs_obs(&mod);
+
+        /*поток для динамических файловых ввода-вывода
+         * {
+         * ...
+         * ...
+         * ...
+         * }
+        */
         Filedynamic fd_obs(&mod);
+
+        //считывание строк
         while(getline(cin, str)){
             mod.get_time();
             mod.set_str(str);
