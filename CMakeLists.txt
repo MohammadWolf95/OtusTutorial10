@@ -21,14 +21,14 @@ add_executable(thread_bulk
 
 add_compile_options(-std=c++11)
 
-#target_link_libraries ( thread_bulk
-#	${LIBIGL_LIBRARIES}
-#	-lpthread
-#	)
+target_link_libraries ( thread_bulk
+	${LIBIGL_LIBRARIES}
+	-lpthread
+	)
 
-find_package(Thread)
+#find_package(Thread)
 
-target_link_libraries( thread_bulk ${CMAKE_THREAD_LIBS_INIT} )
+#target_link_libraries( thread_bulk ${CMAKE_THREAD_LIBS_INIT} )
 
 set_target_properties(thread_bulk PROPERTIES
 		CXX_STANDARD 14
