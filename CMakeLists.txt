@@ -9,14 +9,14 @@ set(TEST_PATH "${PROJECT_TEST_DIR}/test")
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 add_executable(thread_bulk
-					${SOURCE_PATH}/*.cpp
-					#${SOURCE_PATH}/consoleoutput.cpp
-					#${SOURCE_PATH}/filedynamic.cpp
-					#${SOURCE_PATH}/filestatic.cpp
-					#${SOURCE_PATH}/main.cpp
-					#${SOURCE_PATH}/model.cpp
-					#${SOURCE_PATH}/output.cpp
-					#${SOURCE_PATH}/utils.cpp
+					#${SOURCE_PATH}/*.cpp
+					${SOURCE_PATH}/consoleoutput.cpp
+					${SOURCE_PATH}/filedynamic.cpp
+					${SOURCE_PATH}/filestatic.cpp
+					${SOURCE_PATH}/main.cpp
+					${SOURCE_PATH}/model.cpp
+					${SOURCE_PATH}/output.cpp
+					${SOURCE_PATH}/utils.cpp
 					)
 
 add_compile_options(-std=c++11)
