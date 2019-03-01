@@ -26,7 +26,7 @@ add_executable(thread_bulk
 
 add_compile_options(-std=c++11)
 
-target_link_libraries ( model
+target_link_libraries ( thread_bulk
 	${LIBIGL_LIBRARIES}
 	-lpthread
 	)
