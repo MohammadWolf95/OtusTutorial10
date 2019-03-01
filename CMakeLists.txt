@@ -29,7 +29,8 @@ add_compile_options(-std=c++11)
 set_target_properties(thread_bulk PROPERTIES
 		CXX_STANDARD 14
 		CXX_STANDARD_REQUIRED ON
-		COMPILE_OPTIONS -Wpedantic -Wall -Wextra -std=c++11 -pthread
+		COMPILE_OPTIONS -Wpedantic -Wall -Wextra
+		CMAKE_CXX_FLAGS -pthread
 )
 
 install(TARGETS thread_bulk RUNTIME DESTINATION bin)
