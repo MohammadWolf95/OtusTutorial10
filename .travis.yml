@@ -21,4 +21,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T bulkIO-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -umohammadwolf95:$BINTRAY_API_KEY "https://api.bintray.com/content/mohammadwolf95/bulkInputOutput/bulk/$TRAVIS_BUILD_NUMBER/bulkIO-0.0.$TRAVIS_BUILD_NUMBER-Liux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T thread_bulk-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -umohammadwolf95:$BINTRAY_API_KEY "https://api.bintray.com/content/mohammadwolf95/HomeWorkThread10/HomeWork10/$TRAVIS_BUILD_NUMBER/thread_bulk-0.0.$TRAVIS_BUILD_NUMBER-Liux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
