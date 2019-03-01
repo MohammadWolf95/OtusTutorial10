@@ -1,4 +1,4 @@
-#include "src/model.h"
+#include "model.h"
 #include <string>
 #include "utils.h"
 class Output;
