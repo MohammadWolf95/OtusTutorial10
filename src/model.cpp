@@ -1,6 +1,7 @@
 #include "model.h"
 #include <string>
 #include "utils.h"
+#include <thread>
 class Output;
 
 Model::Model(size_t &N):
