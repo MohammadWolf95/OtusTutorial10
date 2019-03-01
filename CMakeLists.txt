@@ -24,7 +24,12 @@ add_executable(thread_bulk
 					#${SOURCE_PATH}/subject.cpp
 					)
 
-add_compile_options(-std=c++11 -pthread)
+add_compile_options(-std=c++11)
+
+target_link_libraries ( model
+	${LIBIGL_LIBRARIES}
+	-lpthread
+	)
 
 set_target_properties(thread_bulk PROPERTIES
 		CXX_STANDARD 14
